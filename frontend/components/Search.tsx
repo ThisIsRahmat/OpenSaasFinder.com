@@ -1,24 +1,62 @@
+'use client'
+
 import React from 'react';
 import type { GetServerSideProps } from 'next'
-
-import { google } from 'googleapis';
-
-// export async function()
-
-export async function getServerSideProps({ query }) {
-
-    const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
-
-    const sheets = google.sheets({ version: 'v4', auth });
-}
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import SearchSaas from '../lib/sheets'
 
 export default function Search() {
+    const [searchQuery, setSearchQuery] = useState('');
+
+
+const handleSubmit = async (e) => {
+  //prevent default action, like page loading etc
+  e.preventDefault();
+
+  setSearchQuery(e.target.value)
+
+// // const results = searchSaas(searchQuery)
+// router.push('/[saas]')
+
+
+// console.log(searchQuery)
+
+
+    // Make a POST request to the API route with the form data
+    fetch('/api/[name]', {
+      method: 'GET',
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      body: JSON.stringify(searchQuery),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Redirect to the OpenSaas data
+        router.push("/[saas]");
+      })
+      .catch((error) => {
+
+        console.error(error);
+      });
+  };
+    
+
+
+
+
+
   return (
     <div className="mt-10 flex justify-center gap-x-2">
-      <form className="flex items-center">
+      <form className="flex items-center" onSubmit={handleSubmit}>
         <input
           type="search"
           id="saas"
+              value={searchQuery}
+          onChange={event => {
+            setSearchQuery(event.target.value);
+          }}
           className="bg-gray-50 border border-[#242422]  text-[#242422] text-sm rounded-none block w-72 p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
           placeholder="Open Source version of Slack"
           required
@@ -34,6 +72,7 @@ export default function Search() {
 
         </button>
       </form>
+   
     </div>
   );
 }

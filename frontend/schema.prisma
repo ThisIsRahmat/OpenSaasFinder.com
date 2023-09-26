@@ -1,0 +1,41 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_URL")
+}
+
+
+// consider adding logos in the future
+model OpenSaas {
+  id                Int      @id @default(autoincrement())
+  name              String
+  description       String
+  website           String
+  activity          String?
+  github            String
+  closedAlternatives ClosedSaaS[]
+  types             Type[]
+}
+
+model Type {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+  openSaas OpenSaas[]
+}
+
+
+model ClosedSaaS {
+  id                 Int      @id @default(autoincrement())
+  name              String       @unique
+  description       String?
+  website           String
+
+  openSaas          OpenSaas[]
+}
