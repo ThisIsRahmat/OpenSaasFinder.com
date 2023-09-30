@@ -1,44 +1,60 @@
-// schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
-  directUrl         = env("DIRECT_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-
-// consider adding logos in the future
 model OpenSaas {
-  id                Int      @id @default(autoincrement())
-  name              String
-  description       String
-  // logo              Bytes 
-  website           String
-  // activity          String?
-  github            String
-
-  closedAlternatives ClosedSaaS[]
-  types             Type[]
+  id                   Int                    @id @default(autoincrement())
+  name                 String
+  description          String
+  website              String                 @unique
+  github               String                 @unique
+  ClosedSaaSToOpenSaas ClosedSaaSToOpenSaas[]
+  OpenSaasToType       OpenSaasToType[]
 }
 
 model Type {
-  id       Int      @id @default(autoincrement())
-  name     String   @unique
-  openSaas OpenSaas[]
+  id             Int              @id @default(autoincrement())
+  name           String           @unique
+  OpenSaasToType OpenSaasToType[]
 }
 
-
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model ClosedSaaS {
-  id                 Int      @id @default(autoincrement())
-  name              String       @unique
-  description       String?
-  logo              Bytes 
-  website           String
+  id                   Int                    @id @default(autoincrement())
+  name                 String
+  description          String?
+  website              String                 @unique
+  ClosedSaaSToOpenSaas ClosedSaaSToOpenSaas[]
+}
 
-  openSaas          OpenSaas[]
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model ClosedSaaSToOpenSaas {
+  closedSaas_id Int
+  openSaas_id   Int
+  ClosedSaaS    ClosedSaaS @relation(fields: [closedSaas_id], references: [id], onDelete: Cascade)
+  OpenSaas      OpenSaas   @relation(fields: [openSaas_id], references: [id], onDelete: Cascade)
+
+  @@unique([closedSaas_id, openSaas_id], map: "_ClosedSaaSToOpenSaas_AB_unique")
+  @@unique([openSaas_id, closedSaas_id], map: "unique_constraint")
+  @@index([openSaas_id], map: "_ClosedSaaSToOpenSaas_B_index")
+  @@map("_ClosedSaaSToOpenSaas")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model OpenSaasToType {
+  OpenSaas_id Int
+  Type_id     Int
+  OpenSaas    OpenSaas @relation(fields: [OpenSaas_id], references: [id], onDelete: Cascade)
+  Type        Type     @relation(fields: [Type_id], references: [id], onDelete: Cascade)
+
+  @@unique([OpenSaas_id, Type_id], map: "_OpenSaasToType_AB_unique")
+  @@index([Type_id], map: "_OpenSaasToType_B_index")
+  @@map("_OpenSaasToType")
 }

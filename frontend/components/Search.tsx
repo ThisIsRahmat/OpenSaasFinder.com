@@ -1,10 +1,11 @@
 'use client'
 
 import React from 'react';
-import type { GetServerSideProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import SearchSaas from '../lib/sheets'
+import { searchOpensaas } from "../lib/searchsaas"
+
 
 export default function Search() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -14,35 +15,39 @@ const handleSubmit = async (e) => {
   //prevent default action, like page loading etc
   e.preventDefault();
 
+  console.log(searchQuery)
+
   setSearchQuery(e.target.value)
+
+  let results = searchOpensaas(searchQuery)
 
 // // const results = searchSaas(searchQuery)
 // router.push('/[saas]')
 
 
-// console.log(searchQuery)
+console.log(results)
 
 
-    // Make a POST request to the API route with the form data
-    fetch('/api/[name]', {
-      method: 'GET',
-      // headers: {
-      //   'Content-Type': 'application/json',
-      // },
-      body: JSON.stringify(searchQuery),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Redirect to the OpenSaas data
-        router.push("/[saas]");
-      })
-      .catch((error) => {
+  //   // Make a POST request to the API route with the form data
+  //   fetch('/api/[name]', {
+  //     method: 'GET',
+  //     // headers: {
+  //     //   'Content-Type': 'application/json',
+  //     // },
+  //     body: JSON.stringify(searchQuery),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // Redirect to the OpenSaas data
+  //       router.push("/[saas]");
+  //     })
+  //     .catch((error) => {
 
-        console.error(error);
-      });
-  };
+  //       console.error(error);
+  //     });
+  // };
     
-
+}
 
 
 
@@ -76,3 +81,4 @@ const handleSubmit = async (e) => {
     </div>
   );
 }
+
