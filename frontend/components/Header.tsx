@@ -12,13 +12,13 @@ export default function Header() {
             <Link href="/" className="-m-1.5 p-1.5">
             <button
           type="submit"
-          className=" hover:underline-offset-2 hover:underline text-[#242422] rounded-none inline-flex items-center p-2.5 ml-2 text-m font-medium"
+          className="  text-[#242422] rounded-none inline-flex items-center p-2.5 ml-2 text-m font-medium"
         >
-          <div className="inline-flex  items-center space-x-2">
+          <div className="inline-flex  items-center ">
             
             {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg> */}
             <Search color="#242422" size={20} className="border-[#242422]" />
-            <span className="block font-black lowercase text-[20px]">Open Saas Finder</span>
+            <span className="block font-black capitalize text-[20px]">Open Saas Finder</span>
             {/* <Search size={16} color="#fcf38c" strokeWidth={1} absoluteStrokeWidth /> */}
           </div>
 
@@ -35,7 +35,7 @@ export default function Header() {
         <Link href="/submit">
         <button
           href="#"
-          className="lowercase bg-[#fcf38c] text-[#242422] rounded-none border-[#242422] px-4 py-2 border text-sm font-semibold inline-flex items-center"
+          className="lowercase bg-black text-white rounded-none border-[#242422] px-4 py-2 border text-sm font-semibold inline-flex items-center"
         >
           Submit an opensource saas
           <svg

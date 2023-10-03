@@ -9,6 +9,10 @@ import { searchOpensaas } from "../lib/searchsaas"
 
 export default function Search() {
     const [searchQuery, setSearchQuery] = useState('');
+    const [results, setResults] = useState([ ]);
+
+
+
 
 
 const handleSubmit = async (e) => {
@@ -19,37 +23,17 @@ const handleSubmit = async (e) => {
 
   setSearchQuery(e.target.value)
 
-  let results = searchOpensaas(searchQuery)
-
-// // const results = searchSaas(searchQuery)
-// router.push('/[saas]')
+  const results = await searchOpensaas(searchQuery)
+  // setResults(saasResponse); 
 
 
-console.log(results)
 
-
-  //   // Make a POST request to the API route with the form data
-  //   fetch('/api/[name]', {
-  //     method: 'GET',
-  //     // headers: {
-  //     //   'Content-Type': 'application/json',
-  //     // },
-  //     body: JSON.stringify(searchQuery),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // Redirect to the OpenSaas data
-  //       router.push("/[saas]");
-  //     })
-  //     .catch((error) => {
-
-  //       console.error(error);
-  //     });
-  // };
-    
+for (result of results) {
+  console.log("This is returned search results " + result.name)
 }
 
 
+}
 
 
   return (
@@ -62,13 +46,13 @@ console.log(results)
           onChange={event => {
             setSearchQuery(event.target.value);
           }}
-          className="bg-gray-50 border border-[#242422]  text-[#242422] text-sm rounded-none block w-72 p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+          className="bg-gray-50 border border-[#242422]  text-[#242422] text-sm rounded-none block w-96 p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
           placeholder="Open Source version of Slack"
           required
         />
        <button
           type="submit"
-          className="bg-[#fcf38c] text-[#242422] rounded-none border-[#242422] inline-flex items-center p-2.5 ml-2 text-sm border font-medium"
+          className="bg-black text-white rounded-none border-[#242422] inline-flex items-center p-2.5 ml-2 text-sm border font-medium"
         >
           <div className="inline-flex space-x-2 items-center">
             <span>Search</span>
