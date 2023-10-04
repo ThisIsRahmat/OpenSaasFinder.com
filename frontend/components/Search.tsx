@@ -1,53 +1,35 @@
-'use client'
 
+"use client"
 import React from 'react';
-import { GetServerSideProps } from 'next'
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { searchOpensaas } from "../lib/searchsaas"
 
-
-export default function Search() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [results, setResults] = useState([ ]);
+import { useRouter } from 'next/navigation'
+import { getOpensaas } from "../lib/getSaas"
 
 
 
+export default  function Search({searchText, results}) {
 
 
-const handleSubmit = async (e) => {
-  //prevent default action, like page loading etc
-  e.preventDefault();
+  const router = useRouter()
 
-  console.log(searchQuery)
+  function handleSubmit(e){
+    e.preventDefault();
+    const form = e.target;
+    router.push(`/?saas=${form.saas.value}`)
 
-  setSearchQuery(e.target.value)
+  }
 
-  const results = await searchOpensaas(searchQuery)
-  // setResults(saasResponse); 
-
-
-
-for (result of results) {
-  console.log("This is returned search results " + result.name)
-}
-
-
-}
 
 
   return (
     <div className="mt-10 flex justify-center gap-x-2">
       <form className="flex items-center" onSubmit={handleSubmit}>
         <input
+        name="saas"
           type="search"
-          id="saas"
-              value={searchQuery}
-          onChange={event => {
-            setSearchQuery(event.target.value);
-          }}
+
           className="bg-gray-50 border border-[#242422]  text-[#242422] text-sm rounded-none block w-96 p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-          placeholder="Open Source version of Slack"
+          placeholder="Calendly"
           required
         />
        <button
@@ -61,7 +43,9 @@ for (result of results) {
 
         </button>
       </form>
-   
+
+
+      
     </div>
   );
 }

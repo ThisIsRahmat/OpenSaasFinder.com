@@ -1,7 +1,7 @@
 
 import {supabase} from '../utils/supabase'
 
-export const searchOpensaas = async (searchQuery: string) => {
+export const getOpensaas = async (searchQuery: string) => {
 
 
   interface Saas {
@@ -16,7 +16,7 @@ export const searchOpensaas = async (searchQuery: string) => {
   const closedSaasIdQuery = await supabase
     .from('closedSaas')
     .select('id')
-    .eq('name', searchQuery);
+    .ilike('name', `${searchQuery}`);
 
 
   const closedSaasId = closedSaasIdQuery.data[0]?.id;
@@ -30,7 +30,8 @@ export const searchOpensaas = async (searchQuery: string) => {
   .eq('closedsaas_id', closedSaasId);
 
   //store opensaasIds in an array
-  const openSaasIds: number[] = openSaasIdQuery.data.map(row => row.opensaas_id);
+  const openSaasIds: number[] = openSaasIdQuery.data ? openSaasIdQuery.data.map(row => row.opensaas_id) : [];
+
 
   let opensaas_data: Saas[] = []
 
@@ -48,9 +49,7 @@ export const searchOpensaas = async (searchQuery: string) => {
     return [];
   }
 
-  console.log("This is the data by ----------")
-  console.log(data)
-  console.log("This is the data" + data)
+
 
   opensaas_data.push(data[0])
 
