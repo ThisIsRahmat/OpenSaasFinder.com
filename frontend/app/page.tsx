@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams: string }) {
 
   const searchText = searchParams.saas;
 
