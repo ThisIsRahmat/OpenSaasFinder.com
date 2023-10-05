@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { useRouter } from 'next/navigation'
-import { getOpensaas } from "../lib/getSaas"
+
 import { IconSearch } from '@tabler/icons-react';
 
 

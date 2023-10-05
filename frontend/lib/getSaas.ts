@@ -60,18 +60,6 @@ export const getOpensaas = async (searchQuery: string) => {
 
 
  
- 
-   console.log("This is the Open Source Saas products for " + searchQuery + " " )
- 
-   for (let opensaas of opensaas_data) {
-     console.log(`Name: ${opensaas.name}`);
-     console.log(`Description: ${opensaas.description}`);
-     console.log(`Website: ${opensaas.website}`);
-     console.log(`GitHub: ${opensaas.github}`);
-   }
-
-   console.log(opensaas_data)
- 
 
    return opensaas_data
  };

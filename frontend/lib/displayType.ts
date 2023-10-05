@@ -1,35 +1,25 @@
+import { supabase } from '../utils/supabase';
 
+export const displayType = async () => {
 
-import {supabase} from '../utils/supabase'
+    const dataTypes: string[] = []
 
-//Fetch list of Types from the database in order to display on the homepage ans suggestions page
+  const { data, error } = await supabase.from('type').select('name');
+  
 
-
-export const  displayType = async () => {
-
-
-
-    let type_data: string[] = []
-    for (let saasType of saasTypes ) {
-      
- 
-
-    const { data, error } = await supabase
-    .from('type')
-    .select('name')
-
-
-      if (error) {
-    console.error('Error fetching OpenSaas companies:', error);
+  
+  if (error) {
+    console.error('Error fetching types:', error);
     return [];
+  }
 
-      }
+  for (let dataType of data ) {
 
-      type_data.push(data[0])
-    }
+    dataTypes.push(dataType.name)
+
+  }
 
 
-      console.log(data)
-      return type_data
-
-}
+//   console.log(dataTypes)
+  return dataTypes;
+};

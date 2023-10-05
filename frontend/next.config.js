@@ -13,6 +13,13 @@ const nextConfig = {
         // port: '',
         // pathname: 'arifscloud/image/upload/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        // You can add these as well
+        // port: '',
+        // pathname: 'arifscloud/image/upload/**',
+      },
     ],
   },
 
