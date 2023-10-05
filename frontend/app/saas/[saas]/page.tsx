@@ -15,7 +15,7 @@ interface saasType {
 
     interface ResultsProps {
         searchText: string;
-        results: SaasType[];
+        results: saasType[];
     }
 
 export default async function SaasPage({ params, results }: { params: { saas: string } }){
