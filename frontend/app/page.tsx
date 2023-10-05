@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Hero from '../components/Hero'
 import Search from '../components/Search'
+import NewSearch from '../components/NewSearch'
 import DisplayTypes from '../components/DisplayTypes'
 // import { getOpensaas } from "../lib/getSaas"
 
@@ -18,11 +19,12 @@ export default async function Home({ searchParams }) {
   return (
    
         
-    <main className="flex min-h-screen flex-col items-center space-y-5  p-24">
+    <main className="flex sm:h-screen flex-col items-center space-y-10  p-24">
    
    <Hero/>
    {/* <DisplayTypes/> */}
-   <Search searchText={searchText}  />
+
+  <NewSearch searchText={searchText}/>
     </main>
 
   )

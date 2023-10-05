@@ -2,6 +2,10 @@ import './globals.css'
 import { DM_Sans } from 'next/font/google'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import NewHeader from '../components/NewHeader'
+
+
+
 
 const dm_sans = DM_Sans({ subsets: ['latin'] })
 
@@ -17,12 +21,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={` ${dm_sans.className}`}>
-      <main>
-      <Header/>
+      <body className="h-screen w-fit { ` ${dm_sans.className}`}">
+      <main className="">
+      <NewHeader/>
       {children}
       </main>
-      <Footer/></body>
+
+      
+      </body>
     </html>
   )
 }
