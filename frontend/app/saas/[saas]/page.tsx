@@ -18,7 +18,7 @@ interface saasType {
         results: saasType[];
     }
 
-export default async function SaasPage({ params, results }: Props) {
+export default async function SaasPage({ params, results } : ResultsProps ) {
 
     results = await getOpensaas(params.saas)
     return (
