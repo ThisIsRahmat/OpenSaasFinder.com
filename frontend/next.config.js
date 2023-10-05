@@ -3,6 +3,19 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'hapnsdcnkzuqaymglmdi.supabase.co',
+        // You can add these as well
+        // port: '',
+        // pathname: 'arifscloud/image/upload/**',
+      },
+    ],
+  },
+
 }
 
 module.exports = nextConfig

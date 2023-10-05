@@ -14,17 +14,17 @@ export default function Footer() {
     <footer className="pb-4 absolute bottom-0 inset-x-0  ">
       <nav className=" border-t border-slate-600 pb-4 pt-2 ">
 
-
+{/* 
       <Link href="https://twitter.com/opensaasfinder" title="Email">
         <div className="flex items-center">
            <Twitter/>
         </div>
-      </Link>
+      </Link> */}
          
           <div className="absolute right-0 flex px-6 space-x-2 ">
          
             <p className="text-sm sm:text-[16px] text-left">
-            Built by <span className="underline-offset-2 underline"> <Link  href="https://www.thisisrahmat.com/">  Rahmat Junaid </Link> </span> in 🇬🇧
+            Built by <span className="underline-offset-2 underline"> <Link  href="https://twitter.com/thisis_rahmat">  Rahmat Junaid </Link> </span> in 🇬🇧
             </p>
           </div>
 

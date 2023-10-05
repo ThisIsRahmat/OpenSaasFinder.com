@@ -29,6 +29,7 @@
     "dotenv-cli": "^7.3.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
+    "font-awesome": "^4.7.0",
     "google-spreadsheet": "^4.1.0",
     "googleapis": "^126.0.1",
     "lucide-react": "^0.274.0",

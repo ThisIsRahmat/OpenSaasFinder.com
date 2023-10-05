@@ -15,7 +15,7 @@ export default function Hero() {
         </div>
         <div>
         <p className=" text-m tracking-tight text-gray-900   mx-auto">
-        Find open source SaaS alternatives to the SaaS products you love. <br/>
+        Find open source versions of the SaaS products you commonly use. <br/>
          Save <span className=" text-blue-700"> money, </span> get more  <span className=" text-red-700"> control over your data,</span> and  <span className="text-green-700"> support open source </span>.
         </p>
         </div>

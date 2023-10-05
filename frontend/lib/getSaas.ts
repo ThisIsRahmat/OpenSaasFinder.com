@@ -9,6 +9,7 @@ export const getOpensaas = async (searchQuery: string) => {
     description: string;
     website: string;
     github: string;
+    logo: string;
     }
 
 
@@ -35,13 +36,13 @@ export const getOpensaas = async (searchQuery: string) => {
 
   let opensaas_data: Saas[] = []
 
-  // itterate through IDs and grab the details of OpenSaas that match our closed Saas query from the opensaasId
+  // iterate through IDs and grab the details of OpenSaas that match our closed Saas query from the opensaasId
 
    for (let openSaasId of openSaasIds ){
 
     const { data, error } = await supabase
     .from('openSaas')
-    .select('name, description, website, github')
+    .select('name, description, website, github, logo')
     .eq('id', openSaasId)
 
       if (error) {
@@ -71,5 +72,6 @@ export const getOpensaas = async (searchQuery: string) => {
 
    console.log(opensaas_data)
  
+
    return opensaas_data
  };
