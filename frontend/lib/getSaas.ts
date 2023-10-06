@@ -32,7 +32,7 @@ interface saasType {
     // console.log("This is closedSaasIdQuery.data.id")
     // console.log(closedSaasIdQuery.data[0].id)
 
-    const closedSaasId: ClosedSaasIdData[] = closedSaasIdQuery.data![0].id;
+    const closedSaasId = closedSaasIdQuery.data![0].id;
 
   //using the closedsaa_id find opensaas_ids that match the searched closed saas
 
@@ -44,7 +44,7 @@ interface saasType {
   .eq('closedsaas_id', closedSaasId);
 
   //store opensaasIds in an array
-  const openSaasIds: number[] = openSaasIdQuery.data ? openSaasIdQuery.data.map(row => row.opensaas_id) : [];
+  const openSaasIds = openSaasIdQuery.data ? openSaasIdQuery.data.map(row => row.opensaas_id) : [];
 
 
   let opensaas_data: saasType[] = []
