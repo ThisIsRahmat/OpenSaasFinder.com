@@ -1,25 +1,25 @@
-import { supabase } from '../utils/supabase';
+// import { supabase } from '../utils/supabase';
 
-export const displayType = async () => {
+// export const displayType = async () => {
 
-    const dataTypes: string[] = []
+//     const dataTypes: string[] = []
 
-  const { data, error } = await supabase.from('type').select('name');
+//   const { data, error } = await supabase.from('type').select('name');
   
 
   
-  if (error) {
-    console.error('Error fetching types:', error);
-    return [];
-  }
+//   if (error) {
+//     console.error('Error fetching types:', error);
+//     return [];
+//   }
 
-  for (let dataType of data ) {
+//   for (let dataType of data ) {
 
-    dataTypes.push(dataType.name)
+//     dataTypes.push(dataType.name)
 
-  }
+//   }
 
 
-//   console.log(dataTypes)
-  return dataTypes;
-};
+// //   console.log(dataTypes)
+//   return dataTypes;
+// };
