@@ -10,7 +10,7 @@ interface saasType {
   description: string;
   website: string;
   github: string;
-  logo: string;
+  logo: string ;
   }
 
 

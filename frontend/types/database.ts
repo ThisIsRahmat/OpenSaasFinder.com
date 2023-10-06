@@ -124,7 +124,7 @@ export interface Database {
           description: string
           github: string
           id: number
-          logo: string | null
+          logo: string
           name: string
           website: string
         }

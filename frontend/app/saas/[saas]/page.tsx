@@ -5,17 +5,10 @@ import { getOpensaas } from "../../../lib/getSaas"
 
 
 import Results from '../../../components/Results'
-interface saasType {
-    name: string;
-    description: string;
-    website: string;
-    github: string;
-    logo: string;
-    }
+
 
     interface ResultsProps {
         searchText: string;
-        results: saasType[];
     }
 
     interface PageProps {
@@ -25,7 +18,7 @@ interface saasType {
 
 export default async function SaasPage({ params }: { params: { saas: string } }) {
 
-   const results : saasType[] = await getOpensaas(params.saas)
+   const results  = await getOpensaas(params.saas)
     return (
 <main>
 

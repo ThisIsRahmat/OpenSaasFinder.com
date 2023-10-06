@@ -1,17 +1,13 @@
 
 import {supabase} from '../utils/supabase'
+import { saasType } from '../types/saasType'
+
 
 export const getOpensaas = async (searchQuery: string) => {
 
 
  
-interface saasType {
-  name: string;
-  description: string;
-  website: string;
-  github: string;
-  logo: string;
-  }
+
 
   interface ClosedSaasIdData {
     id: number;
@@ -25,14 +21,18 @@ interface saasType {
     .ilike('name', `${searchQuery}`);
 
 
-    // console.log("This is  closedSaasIdQuery" )
-    // console.log(closedSaasIdQuery)
-    // console.log("This is closedSaasIdQuery.data" )
-    // console.log(closedSaasIdQuery.data)
-    // console.log("This is closedSaasIdQuery.data.id")
-    // console.log(closedSaasIdQuery.data[0].id)
 
     const closedSaasId = closedSaasIdQuery.data![0].id;
+    
+// console.log("This is type of data id")
+// console.log(typeof closedSaasIdQuery.data![0].id)
+
+
+// console.log("This is type of closedSaasIdQuery")
+// console.log(typeof closedSaasIdQuery)
+
+// console.log("This is type of closedSaasIdQuery.data[0].id")
+// console.log(typeof closedSaasIdQuery.data[0].id)
 
   //using the closedsaa_id find opensaas_ids that match the searched closed saas
 
