@@ -20,10 +20,14 @@ export const getOpensaas = async (searchQuery: string) => {
     .ilike('name', `${searchQuery}`);
 
 
-  const closedSaasId :number = closedSaasIdQuery.data[0]?.id;
+    const closedSaasId: number | null = closedSaasIdQuery.data?.[0]?.id ?? null;
+
+
 
 
   //using the closedsaa_id find opensaas_ids that match the searched closed saas
+
+  if (closedSaasId !== null) {
 
   const openSaasIdQuery = await supabase
   .from('_ClosedSaaSToOpenSaas')
@@ -62,4 +66,10 @@ export const getOpensaas = async (searchQuery: string) => {
  
 
    return opensaas_data
+
+  }
+
+  else {
+    return "Error unable to get the right closed Saas"
+  }
  };
