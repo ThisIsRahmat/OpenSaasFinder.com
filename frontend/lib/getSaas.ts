@@ -6,9 +6,6 @@ import { saasType } from '../types/saasType'
 export const getOpensaas = async (searchQuery: string) => {
 
 
- 
-
-
   interface ClosedSaasIdData {
     id: number;
     // Add other properties if they exist in the data
@@ -21,9 +18,15 @@ export const getOpensaas = async (searchQuery: string) => {
     .ilike('name', `${searchQuery}`);
 
 
+    if (!closedSaasIdQuery) {
+      console.log("Can't find a query")
+      return []
+    }
+
 
     const closedSaasId = closedSaasIdQuery.data![0].id;
-    
+
+
 // console.log("This is type of data id")
 // console.log(typeof closedSaasIdQuery.data![0].id)
 
