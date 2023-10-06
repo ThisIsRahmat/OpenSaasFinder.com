@@ -8,7 +8,7 @@ export default function NewSearch({ searchText = " " }){
 
     const router = useRouter()
 
-    function handleSubmit(e){
+    function handleSubmit(e :React.FormEvent<HTMLInputElement>){
       e.preventDefault();
       const form = e.target;
       //replace any whitespaces at start of the search string
