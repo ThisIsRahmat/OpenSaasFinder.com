@@ -17,10 +17,12 @@ import Results from '../../../components/Results'
       }
 
 export default async function SaasPage({ params }: { params: { saas: string } }) {
+    console.log("This is params.saas")
 
+    console.log(params.saas)
    const results  = await getOpensaas(params.saas)
     return (
-<main>
+<main className="sm:h-screen ">
 
 
     <Results searchText={params.saas} results={results}/>

@@ -24,7 +24,8 @@ export const getOpensaas = async (searchQuery: string) => {
     }
 
 
-    const closedSaasId = closedSaasIdQuery.data![0].id;
+    const closedSaasId = closedSaasIdQuery.data && closedSaasIdQuery.data.length > 0 ? closedSaasIdQuery.data[0].id : null;
+
 
 
 // console.log("This is type of data id")

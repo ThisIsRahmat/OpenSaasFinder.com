@@ -3,7 +3,7 @@ import { DM_Sans } from 'next/font/google'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import NewHeader from '../components/NewHeader'
-
+import NewFooter from '../components/NewFooter'
 
 
 
@@ -21,10 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen w-fit { ` ${dm_sans.className}`}">
+      <body className="h-screen w-fit  { ` ${dm_sans.className}`}">
       <main className="">
       <NewHeader/>
       {children}
+      <NewFooter/>
       </main>
 
       
