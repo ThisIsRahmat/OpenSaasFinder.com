@@ -34,7 +34,7 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
         <Link href="https://airtable.com/appwLc0M2vNJcHRCu/shr837GjMn23aKRRs">
         <button
-          href="#"
+          href="/"
           className="lowercase bg-black text-white rounded-none border-[#242422] px-4 py-2 border text-sm font-semibold inline-flex items-center"
         >
           Submit an opensource saas
