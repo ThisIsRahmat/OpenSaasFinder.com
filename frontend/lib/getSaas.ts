@@ -13,6 +13,11 @@ interface saasType {
   logo: string;
   }
 
+  interface ClosedSaasIdData {
+    id: number;
+    // Add other properties if they exist in the data
+  }
+
     //extract closedsaas_id that matches the search query
   const closedSaasIdQuery = await supabase
     .from('closedSaas')
@@ -27,11 +32,7 @@ interface saasType {
     // console.log("This is closedSaasIdQuery.data.id")
     // console.log(closedSaasIdQuery.data[0].id)
 
-    const closedSaasId: number = closedSaasIdQuery.data![0].id;
-
-
-
-
+    const closedSaasId: ClosedSaasIdData[] = closedSaasIdQuery.data![0].id;
 
   //using the closedsaa_id find opensaas_ids that match the searched closed saas
 
