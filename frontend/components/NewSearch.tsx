@@ -8,13 +8,17 @@ export default function NewSearch({ searchText = " " }){
 
     const router = useRouter()
 
-    function handleSubmit(e:  React.ChangeEventHandler<HTMLInputElement>){
-      e.preventDefault();
-      const form = e.currentTarget;
+    function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>){
+      event.preventDefault();
+      const form = event.currentTarget
+
+      const formElements = form.elements as typeof form.elements & {
+        closedSaas: {value: string}
+      }
       //replace any whitespaces at start of the search string
       const saasValue = form.saas.value.trimStart();
-    console.log(e)
-    console.log(form.value)
+    console.log(event)
+    console.log(saasValue)
       router.push(`/saas/${saasValue}`)
   
     }
@@ -28,7 +32,7 @@ export default function NewSearch({ searchText = " " }){
                   <form className="flex items-center" onSubmit={handleSubmit}>
                   <div className="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
                   <div className="w-full md:w-1/2">
-                    <label htmlFor="simple-search" className="sr-only">Search</label>
+                    <label htmlFor="closedSaas" className="sr-only">Search</label>
                     <div className="relative w-full">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -40,11 +44,11 @@ export default function NewSearch({ searchText = " " }){
                    <input
         name="saas"
           type="text"
-
+id="closedSaas"
           className="bg-[#EEEEEE] border border-[#242422]  text-[#242422] text-sm rounded-none block  w-fit lg:w-96 p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:text-white"
           placeholder="Calendly"
           required
-          defaultValue={searchText}
+        //   defaultValue={searchText}
 
         />
                     </div>
