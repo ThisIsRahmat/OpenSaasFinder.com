@@ -20,21 +20,22 @@ interface saasType {
     .ilike('name', `${searchQuery}`);
 
 
-    console.log("This is  closedSaasIdQuery" )
-    console.log(closedSaasIdQuery)
-    console.log("This is closedSaasIdQuery.data" )
-    console.log(closedSaasIdQuery.data)
-    console.log("This is closedSaasIdQuery.data.id")
-    console.log(closedSaasIdQuery.data[0].id)
+    // console.log("This is  closedSaasIdQuery" )
+    // console.log(closedSaasIdQuery)
+    // console.log("This is closedSaasIdQuery.data" )
+    // console.log(closedSaasIdQuery.data)
+    // console.log("This is closedSaasIdQuery.data.id")
+    // console.log(closedSaasIdQuery.data[0].id)
 
-    const closedSaasId: number  = closedSaasIdQuery.data[0].id
+    const closedSaasId: number = closedSaasIdQuery.data![0].id;
+
 
 
 
 
   //using the closedsaa_id find opensaas_ids that match the searched closed saas
 
-  if (closedSaasId !== null) {
+
 
   const openSaasIdQuery = await supabase
   .from('_ClosedSaaSToOpenSaas')
@@ -76,8 +77,5 @@ interface saasType {
 
   }
 
-  else {
-    console.error("Error unable to get the right closed Saas")
-    return [];
-  }
+
  };
