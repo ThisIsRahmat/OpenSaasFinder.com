@@ -4,14 +4,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Github, Star} from 'lucide-react';
+import { saasType } from '../types/saasType'
 
-interface saasType {
-  name: string;
-  description: string;
-  website: string;
-  github: string;
-  logo: string ;
-  }
+// interface saasType {
+//   name: string;
+//   description: string;
+//   website: string;
+//   github: string;
+//   logo: string ;
+//   }
 
 
   
