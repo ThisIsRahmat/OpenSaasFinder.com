@@ -20,7 +20,7 @@ export const getOpensaas = async (searchQuery: string) => {
     .ilike('name', `${searchQuery}`);
 
 
-  const closedSaasId = closedSaasIdQuery.data[0]?.id;
+  const closedSaasId :number = closedSaasIdQuery.data[0]?.id;
 
 
   //using the closedsaa_id find opensaas_ids that match the searched closed saas
