@@ -70,6 +70,7 @@ interface saasType {
   }
 
   else {
-    return "Error unable to get the right closed Saas"
+    console.error("Error unable to get the right closed Saas")
+    return [];
   }
  };
