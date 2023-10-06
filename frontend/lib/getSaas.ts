@@ -4,14 +4,14 @@ import {supabase} from '../utils/supabase'
 export const getOpensaas = async (searchQuery: string) => {
 
 
-  interface Saas {
-    name: string;
-    description: string;
-    website: string;
-    github: string;
-    logo: string;
-    }
-
+ 
+interface saasType {
+  name: string;
+  description: string;
+  website: string;
+  github: string;
+  logo: string;
+  }
 
     //extract closedsaas_id that matches the search query
   const closedSaasIdQuery = await supabase
@@ -38,7 +38,7 @@ export const getOpensaas = async (searchQuery: string) => {
   const openSaasIds: number[] = openSaasIdQuery.data ? openSaasIdQuery.data.map(row => row.opensaas_id) : [];
 
 
-  let opensaas_data: Saas[] = []
+  let opensaas_data: saasType[] = []
 
   // iterate through IDs and grab the details of OpenSaas that match our closed Saas query from the opensaasId
 
