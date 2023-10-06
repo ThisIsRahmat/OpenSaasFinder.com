@@ -40,6 +40,8 @@ export const getOpensaas = async (searchQuery: string) => {
 
   //using the closedsaa_id find opensaas_ids that match the searched closed saas
 
+  if (closedSaasId !== null) {
+
 
 
   const openSaasIdQuery = await supabase
@@ -80,7 +82,11 @@ export const getOpensaas = async (searchQuery: string) => {
 
    return opensaas_data
 
+  } else {
 
+  console.log("closedSaasId is null")
+return []
+}
 
 
  };
