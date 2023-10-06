@@ -20,7 +20,14 @@ interface saasType {
     .ilike('name', `${searchQuery}`);
 
 
-    const closedSaasId: number | null = closedSaasIdQuery.data?.[0]?.id ?? null;
+    console.log("This is  closedSaasIdQuery" )
+    console.log(closedSaasIdQuery)
+    console.log("This is closedSaasIdQuery.data" )
+    console.log(closedSaasIdQuery.data)
+    console.log("This is closedSaasIdQuery.data.id")
+    console.log(closedSaasIdQuery.data[0].id)
+
+    const closedSaasId: number  = closedSaasIdQuery.data[0].id
 
 
 
