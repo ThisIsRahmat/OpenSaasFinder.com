@@ -5,6 +5,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Github, Star} from 'lucide-react';
 
+interface saasType {
+  name: string;
+  description: string;
+  website: string;
+  github: string;
+  logo: string;
+  }
+
 
   
   export default function Results({ searchText, results }: { searchText: string; results: saasType[] }) {
