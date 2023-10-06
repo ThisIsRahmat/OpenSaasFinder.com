@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import NewHeader from '../components/NewHeader'
 import NewFooter from '../components/NewFooter'
+import { Analytics } from '@vercel/analytics/react';
 
 
 
@@ -28,7 +29,7 @@ export default function RootLayout({
       <NewFooter/>
       </main>
 
-      
+      <Analytics />
       </body>
     </html>
   )
