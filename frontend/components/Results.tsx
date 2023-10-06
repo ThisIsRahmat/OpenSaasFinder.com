@@ -33,7 +33,7 @@ interface saasType {
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {results.map((saas) => (
-              <div  className="relative isolate border rounded-xl px-2 py-2 flex flex-row gap-2 lg:flex-col">
+              <div key={saas.website} className="relative isolate border rounded-xl px-2 py-2 flex flex-row gap-2 lg:flex-col">
                 <div className="relative  py-2 px-2">
                   <Link href={saas.website}>
                   <Image
