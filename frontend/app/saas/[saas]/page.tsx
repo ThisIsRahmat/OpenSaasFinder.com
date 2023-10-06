@@ -23,7 +23,7 @@ interface saasType {
         searchParams: { [key: string]: string | string[] | undefined };
       }
 
-export default async function SaasPage({ params, searchParams } :PageProps ) {
+export default async function SaasPage({ params }: { params: { saas: string } }) {
 
    const results = await getOpensaas(params.saas)
     return (
