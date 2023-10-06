@@ -25,7 +25,7 @@ interface saasType {
 
 export default async function SaasPage({ params }: { params: { saas: string } }) {
 
-   const results = await getOpensaas(params.saas)
+   const results : saasType[] = await getOpensaas(params.saas)
     return (
 <main>
 
