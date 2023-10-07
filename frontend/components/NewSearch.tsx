@@ -16,8 +16,9 @@ export default function NewSearch({ searchText = " " }){
         closedSaas: {value: string}
       }
       //replace any whitespaces at start of the search string
-      const saasValue = form.saas.value.trimStart();
-    
+      const saasValue = form.saas.value.trim();
+      console.log("This is saasValue")
+      console.log(saasValue)
       router.push(`/saas/${saasValue}`)
   
     }
