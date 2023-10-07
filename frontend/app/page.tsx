@@ -10,9 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 
-export default async function Home({ searchParams} : { searchParams : any }) {
-
-  const searchText = searchParams.saas;
+export default async function Home() {
 
 
 
@@ -24,7 +22,7 @@ export default async function Home({ searchParams} : { searchParams : any }) {
    <Hero/>
    {/* <DisplayTypes/> */}
 
-  <NewSearch searchText={searchText}/>
+  <NewSearch />
     </main>
 
   )

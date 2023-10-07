@@ -1,6 +1,22 @@
-// import { supabase } from '../utils/supabase';
+//displays all the types on the landing page of the site
 
-// export const displayType = async () => {
+import { supabase } from '../utils/supabase';
+
+export const displayType = async () => {
+
+    const { data, error } = await supabase
+    .from('type')
+    .select('name')
+  
+
+      if (error) {
+    console.error('Error fetching types:', error);
+    return [];
+  }
+
+  return data
+
+}
 
 //     const dataTypes: string[] = []
 
