@@ -3,13 +3,10 @@
 import Link from 'next/link'
 import { Popover } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { SVGProps } from 'react';
 
-// import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-// import { Logo } from '@/components/Logo'
-// import { NavLinks } from '@/components/NavLinks'
 
-function MenuIcon(props) {
+function MenuIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
       <path
@@ -22,7 +19,7 @@ function MenuIcon(props) {
   )
 }
 
-function ChevronUpIcon(props) {
+function ChevronUpIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
       <path
@@ -43,8 +40,9 @@ export default function NewNewHeader() {
       <nav>
 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-50 flex justify-between py-8">
           <div className="relative z-10 flex items-center gap-16">
-            <Link href="/" aria-label="Home">
- OpenSaas Finder
+          <Link href="/" className="flex items-center">
+  {/* Create a logo for OpenSaas Finder and add it here */}
+                <span className="self-center text-2xl font-semibold whitespace-nowrap ">OpenSaas Finder</span>
             </Link>
             <div className="hidden lg:flex lg:gap-10">
     
@@ -93,7 +91,7 @@ export default function NewNewHeader() {
                           <div className="mt-4 flex flex-col gap-4">
                           <button className="" >
                           <Link href="https://airtable.com/appwLc0M2vNJcHRCu/shr837GjMn23aKRRs">
-                           Submit an opensource saas alternative</Link> </button> 
+                           Submit an opensource project</Link> </button> 
                      
                           
                           </div>
@@ -106,8 +104,8 @@ export default function NewNewHeader() {
             </Popover>
 
              <Link href="https://airtable.com/appwLc0M2vNJcHRCu/shr837GjMn23aKRRs">
-                <button className="hidden lg:block sm:bg-black sm:text-white font-medium text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">
-                Submit an opensource saas alternative
+                <button className="hidden lg:block sm:bg-black sm:text-white sm:font-medium sm:text-l  sm:px-2 lg:px-5 sm:py-2 lg:py-2.5 sm:mr-2 focus:outline-none">
+                Submit an opensource project
              </button>
              </Link>
           
